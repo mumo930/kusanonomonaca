@@ -1,0 +1,78 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta http-equiv="Content-Security-Policy" content="default-src * data: gap: https://ssl.gstatic.com; style-src * 'unsafe-inline'; script-src * 'unsafe-inline' 'unsafe-eval'">
+    <link rel="stylesheet" href="components/loader.css">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="components/loader.js"></script>
+    <script>
+        function showAnswer(choiceNo){
+        var janken = Math.ceil(Math.random() * 4);
+
+       if(choiceNo == 1){
+         if(janken == 1 || janken == 4){
+           document.getElementById("mes-img").src = "images/draw.png";
+           document.getElementById("result-img").src = "images/guu.png";
+         }else if(janken == 2){
+           document.getElementById("mes-img").src = "images/win.png";
+          document.getElementById("result-img").src = "images/choki.png";
+         }else if(janken == 3){
+           document.getElementById("mes-img").src = "images/lose.png";
+          document.getElementById("result-img").src = "images/paa.png";
+         }
+       }else if(choiceNo == 2){
+         if(janken == 1){
+           document.getElementById("mes-img").src = "images/lose.png"
+          document.getElementById("result-img").src = "images/guu.png";
+         }else if(janken == 2 || janken == 4){
+           document.getElementById("mes-img").src = "images/draw.png";
+          document.getElementById("result-img").src = "images/choki.png";
+         }else if(janken == 3){
+           document.getElementById("mes-img").src = "images/win.png";
+          document.getElementById("result-img").src = "images/paa.png";
+         }
+       }else if(choiceNo == 3){
+         if(janken == 1){
+           document.getElementById("mes-img").src = "images/win.png";
+          document.getElementById("result-img").src = "images/guu.png";
+         }else if(janken == 2){
+           document.getElementById("mes-img").src = "images/lose.png"
+          document.getElementById("result-img").src = "images/choki.png";
+         }else if(janken == 3 || janken == 4){
+            document.getElementById("mes-img").src = "images/draw.png";
+          document.getElementById("result-img").src = "images/paa.png";
+         }
+       }
+        document.getElementById("select-page").style.display = "none";
+        document.getElementById("result-page").style.display = "block";
+      }
+    </script>
+  </head>
+  <body>
+    <!-- 選択画面 -->
+    <div id="select-page" style="display:block">
+      <div id="moji">
+        <img src="images/mes.png" alt="出す手を選んでね！" width="100%">
+      </div>
+        <img src="images/guu.png" alt="グー" class="hand" onclick="showAnswer(1)"><br>
+        <img src="images/choki.png" alt="チョキ" class="hand" onclick="showAnswer(2)"><br>
+        <img src="images/paa.png" alt="パー" class="hand" onclick="showAnswer(3)"><br>
+    </div>
+    <!-- 結果画面 -->
+    <div id="result-page" style="display:none">
+      <div id="moji">
+        <img id="mes-img" src="">
+        <img id="result-img" src="">
+
+        <button type="button" class="btn2" autofocus="true" onclick="location.href='main.html'">
+          <img src="images/restart.png" alt="もういちど" width="100%">
+        </button>
+        <button type="button" class="btn3" autofocus="true" onclick="location.href='index.html'">
+          <img src="images/exit.png" alt="もどる" width="60%">
+          </button>
+        </div>
+    </div>
+  </body>
+</html>
